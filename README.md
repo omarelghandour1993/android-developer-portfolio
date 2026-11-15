@@ -1,125 +1,98 @@
 # Android Development Portfolio
 
 ![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
+![React](https://img.shields.io/badge/React-19-20232A?logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
-![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?logo=capacitor&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white)
+![Capacitor](https://img.shields.io/badge/Capacitor-7-119EFF?logo=capacitor&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E?logo=supabase&logoColor=white)
 
 Welcome to my Android Development Portfolio.
 
-I design and develop modern Android applications focused on functionality, user experience, performance, and practical solutions.
+I build mobile applications with an emphasis on practical functionality, clear user experiences, maintainable frontend architecture and backend integration. This repository presents selected projects through feature summaries, technical architecture, screenshots and demonstrations.
 
-This portfolio showcases selected applications, their features, technologies, architecture, and development process.
+## Featured project
 
-## Featured Projects
+### Swapply — Product exchange application
 
-### 1) Swapply
+Swapply is an Android-focused product exchange application for Egypt. Users list items and propose direct exchanges rather than buying and selling. An optional, mutually agreed cash difference can balance an exchange; Swapply does not process payments.
 
-Swapply is a mobile-first product exchange application focused on direct item swapping, reuse, and community-based exchanges without the pressure of traditional buying and selling.
+**Technical highlights**
+- React 19, TypeScript and Vite frontend
+- Capacitor 7 Android integration
+- Supabase authentication, Postgres, Row Level Security, Realtime and Edge Functions
+- Cloudflare R2 image storage through presigned uploads
+- Firebase Cloud Messaging integration and Capacitor notifications
+- Swap offers, private conversations, favourites, dashboard and moderation workflows
+- Retro 1980s/1990s arcade-inspired interface with light and dark themes
 
-- Project link: [Swapply](./Swapply/README.md)
-- Screenshots: [View gallery](./Swapply/screenshots/)
-- Demo video: [Add demo video](./Swapply/demo-video/)
-- Architecture: [Architecture documentation](./Swapply/architecture.md)
-- APK: [Release APK placeholder](./Swapply/download/)
+**Explore Swapply**
+- [Project overview and feature details](./Swapply/README.md)
+- [Technical architecture](./Swapply/architecture.md)
+- [Feature inventory](./Swapply/features.md)
+- [Development process](./Swapply/development-process.md)
+- [Screenshots](./Swapply/screenshots/)
+- [Demo video](./Swapply/demo-video/)
+- [APK downloads](./Swapply/download/)
 
-Key highlights:
-- Product exchange and item swapping
-- Direct matching between users
-- Additional cash adjustment in exchange agreements
-- Clean and practical mobile experience
+> The source repository is private. This public portfolio contains selected documentation and presentation material, not the application's private source code or credentials.
 
-### 2) Project-2
+## Other projects
 
-[Project description placeholder. Add a clear summary of the application, its user problem, and its purpose.]
+### Project-2
+[Project description placeholder. Replace with the actual project name, purpose, features, stack and status when ready.](./Project-2/README.md)
 
-- Project link: [Project-2](./Project-2/README.md)
-- Screenshots: [View gallery](./Project-2/screenshots/)
-- Demo video: [Add demo video](./Project-2/demo-video/)
-- Architecture: [Architecture documentation](./Project-2/architecture.md)
-- APK: [Release APK placeholder](./Project-2/download/)
+- [Screenshots](./Project-2/screenshots/) · [Demo](./Project-2/demo-video/) · [Architecture](./Project-2/architecture.md) · [Downloads](./Project-2/download/)
 
-### 3) Project-3
+### Project-3
+[Project description placeholder. Replace with the actual project name, purpose, features, stack and status when ready.](./Project-3/README.md)
 
-[Project description placeholder. Add a clear summary of the application, its user problem, and its purpose.]
+- [Screenshots](./Project-3/screenshots/) · [Demo](./Project-3/demo-video/) · [Architecture](./Project-3/architecture.md) · [Downloads](./Project-3/download/)
 
-- Project link: [Project-3](./Project-3/README.md)
-- Screenshots: [View gallery](./Project-3/screenshots/)
-- Demo video: [Add demo video](./Project-3/demo-video/)
-- Architecture: [Architecture documentation](./Project-3/architecture.md)
-- APK: [Release APK placeholder](./Project-3/download/)
+### Project-4
+[Project description placeholder. Replace with the actual project name, purpose, features, stack and status when ready.](./Project-4/README.md)
 
-### 4) Project-4
+- [Screenshots](./Project-4/screenshots/) · [Demo](./Project-4/demo-video/) · [Architecture](./Project-4/architecture.md) · [Downloads](./Project-4/download/)
 
-[Project description placeholder. Add a clear summary of the application, its user problem, and its purpose.]
+### Project-5
+[Project description placeholder. Replace with the actual project name, purpose, features, stack and status when ready.](./Project-5/README.md)
 
-- Project link: [Project-4](./Project-4/README.md)
-- Screenshots: [View gallery](./Project-4/screenshots/)
-- Demo video: [Add demo video](./Project-4/demo-video/)
-- Architecture: [Architecture documentation](./Project-4/architecture.md)
-- APK: [Release APK placeholder](./Project-4/download/)
+- [Screenshots](./Project-5/screenshots/) · [Demo](./Project-5/demo-video/) · [Architecture](./Project-5/architecture.md) · [Downloads](./Project-5/download/)
 
-### 5) Project-5
+## Technologies and areas of work
 
-[Project description placeholder. Add a clear summary of the application, its user problem, and its purpose.]
+Technologies documented in the Swapply project include React, TypeScript, Vite, Capacitor, Android, Supabase, PostgreSQL, Cloudflare R2 and Firebase Cloud Messaging. Other skills and services should be added as further portfolio projects demonstrate them.
 
-- Project link: [Project-5](./Project-5/README.md)
-- Screenshots: [View gallery](./Project-5/screenshots/)
-- Demo video: [Add demo video](./Project-5/demo-video/)
-- Architecture: [Architecture documentation](./Project-5/architecture.md)
-- APK: [Release APK placeholder](./Project-5/download/)
+Areas of work represented by this portfolio:
+- Android application development and Capacitor integration
+- Mobile-first UI implementation
+- Authentication and session flows
+- Database integration and Row Level Security
+- Realtime features and push notifications
+- Image upload and object-storage integration
+- API and backend integration
+- Testing, debugging and release preparation
 
-## Technical Skills
+## Development services
 
-The following technologies represent the tools and platforms used or explored across this portfolio and project work:
-
-- React
-- TypeScript
-- JavaScript
-- Capacitor
-- Supabase
-- Android development
-- Git and GitHub
-- REST APIs
-- Authentication and authorization
-- Database integration
-- Responsive UI development
-
-## Development Services
-
-I offer the following mobile and application services:
-
+I am available for project discussions involving:
 - Android application development
-- Converting existing web applications into Android applications
-- Mobile UI development
-- Supabase authentication integration
-- Database integration
-- Push notification integration
-- API integration
-- Bug fixing and application improvements
-- Android application testing and deployment preparation
+- Packaging existing web applications as Android apps
+- React and TypeScript mobile interfaces
+- Supabase authentication and database integration
+- Push notifications and realtime functionality
+- API integration, debugging and application improvements
 
-## Contact Information
+## Contact
 
-Use the placeholders below to add your contact details:
+Add verified contact details before sharing this portfolio with clients.
 
-| Type | Details |
-| --- | --- |
-| GitHub Profile | [your-github-profile] |
-| Freelance Profile | [your-freelance-profile] |
-| Professional Email | [your-email@example.com] |
-| LinkedIn Profile | [your-linkedin-profile] |
+| Contact | Link / details |
+|---|---|
+| GitHub | [Add GitHub profile URL] |
+| Freelance profile | [Add profile URL] |
+| Email | [Add professional email] |
+| LinkedIn | [Add LinkedIn URL] |
 
-## Project Navigation
+## Portfolio privacy
 
-- [Swapply](./Swapply/README.md)
-- [Project-2](./Project-2/README.md)
-- [Project-3](./Project-3/README.md)
-- [Project-4](./Project-4/README.md)
-- [Project-5](./Project-5/README.md)
-
-## Notes
-
-This repository is intentionally structured as a public portfolio and does not include private source code, credentials, service keys, or sensitive application configuration.
-
+This is a public presentation repository. Private application source code, service credentials, environment files, signing keys and sensitive backend configuration must remain in private storage. Feature descriptions reflect project documentation and should not be interpreted as independent security or production-readiness certification.
