@@ -1,150 +1,135 @@
-# Swapply Architecture
+# Swapply — Technical Architecture
 
-This document describes the current architecture for the public portfolio version of Swapply. It distinguishes between architecture that is known or verified and architecture that is proposed, intended, or still being defined.
+This document summarizes the architecture described by the Swapply project README, package manifest and documented source layout. It intentionally omits private implementation code, credentials, project identifiers and secret configuration values.
 
-## 1. Application Architecture Overview
+## 1. High-level architecture
 
-The application is intended to provide a user-focused product exchange experience for Android users, with emphasis on direct swaps and value balancing between exchanged items.
-
-### Verified / Publicly Documented
-
-- React-based frontend for the user interface
-- TypeScript for app logic and maintainability
-- Capacitor for Android packaging and mobile app delivery
-- Supabase as the backing platform for authentication and data services
-
-### Proposed / To Be Confirmed
-
-- Detailed frontend state management patterns
-- Advanced modular architecture for product flows
-- Real-time notification infrastructure
-- Image optimization and cloud media workflow
-- Production deployment process and CI/CD pipeline
-
-## 2. Frontend Architecture
-
-The frontend is expected to be built around a component-driven user experience that supports:
-
-- Product discovery
-- Product listing creation
-- Swap request and agreement flow
-- User account management
-- Mobile-friendly layout and navigation
-
-This layer should remain lightweight, maintainable, and optimized for Android devices packaged with Capacitor.
-
-## 3. Android Integration
-
-Capacitor is used as the bridge between web application code and Android deployment.
-
-This allows:
-
-- A web app to be packaged as a mobile application
-- Android-focused configuration and build preparation
-- Native app delivery while keeping a web-first development workflow
-
-The application can be improved further with Android-specific UX and packaging optimizations when needed.
-
-## 4. Authentication Architecture
-
-Authentication is expected to be managed through Supabase, which supports secure user-based access patterns and identity management.
-
-Possible authentication workflows include:
-
-- Sign up and sign in
-- Email verification
-- Session handling
-- User profile access control
-
-The exact authentication flow should be documented after implementation is confirmed.
-
-## 5. Backend and Database Architecture
-
-The public portfolio should only describe the backend model at a high level unless actual implementation details are confirmed.
-
-Expected architecture:
-
-- Supabase database for storing user and product-related data
-- Application logic interacting with frontend services through API calls
-- Secure access patterns and role-aware permissions where implemented
-
-The final database schema and backend structure should be added once the application is fully documented.
-
-## 6. API Communication
-
-The application is expected to communicate with backend services through REST-based or Supabase-driven API calls.
-
-Typical responsibilities:
-
-- Fetch user data
-- Retrieve product listings
-- Create and update product records
-- Submit swap proposals
-- Handle authentication events
-
-## 7. Image Storage
-
-Image storage requirements are not yet confirmed in the public portfolio version.
-
-Possible approaches include:
-
-- Supabase storage for user-uploaded product images
-- Managed object storage for posting media assets
-- Local application storage for temporary or cached resources
-
-This section should only be finalized after the actual implementation is verified.
-
-## 8. Push Notifications
-
-Push notifications are not documented as confirmed in the public portfolio version.
-
-If implemented later, this would likely involve:
-
-- Notification trigger events
-- User preference settings
-- Background or foreground delivery flow
-- Android-specific notification handling
-
-## 9. Security Considerations
-
-The public repository must not contain any private credentials or sensitive configuration.
-
-Security practices should include:
-
-- Avoiding secret files in public repositories
-- Using environment variables only in secure local or deployment environments
-- Keeping API keys, service-role credentials, and signing details out of the repo
-- Minimizing exposure of private app logic or backend configuration
-
-## 10. Build and Deployment Workflow
-
-A typical public-safe workflow would look like this:
-
-- Frontend development in React + TypeScript
-- Android packaging through Capacitor
-- Supabase configuration for auth and data work
-- Build verification and app testing
-- Release preparation and APK packaging
-
-The actual workflow should be revised when the app is ready for deployment documentation.
-
-## Mermaid Diagram
+Swapply is a React/TypeScript application packaged for Android using Capacitor. Supabase provides authentication, Postgres data, Row Level Security, Realtime and Edge Functions. Cloudflare R2 stores product images; Firebase Cloud Messaging is integrated for push delivery when the app is closed.
 
 ```mermaid
-flowchart LR
-    A[User] --> B[React + TypeScript Frontend]
-    B --> C[Capacitor Android Wrapper]
-    B --> D[Supabase Auth]
-    B --> E[Supabase Database]
-    B --> F[API Requests]
-    E --> G[Products and Users]
-    D --> H[Authentication and Session Management]
-    C --> I[Android App Build]
+flowchart TD
+    U[Android user] --> A[Capacitor Android application]
+    A --> R[React 19 + TypeScript UI]
+    R --> S[Supabase client]
+    S --> AU[Supabase Auth]
+    S --> DB[(Postgres + Row Level Security)]
+    S --> RT[Supabase Realtime]
+    S --> EF[Supabase Edge Functions]
+    R --> IMG[Image processing: resize + WebP]
+    IMG --> EF
+    EF --> R2[(Cloudflare R2 object storage)]
+    EF --> FCM[Firebase Cloud Messaging]
+    FCM --> A
+    RT --> R
+    A --> NP[Capacitor local and push notifications]
 ```
 
-## Summary
+## 2. Client application
 
-Swapply's architecture is currently documented at a high level to protect application privacy while still presenting a credible and professional project overview.
+The app uses React 19, TypeScript and Vite, with React Router for navigation. The documented source organization separates:
 
-The architecture should be updated over time to reflect verified implementation details, real deployment decisions, and the final software design of the application.
+- **Pages:** marketplace, search, listing form, product details, offers, offer composer, chat, dashboard, favourites, admin, profile, authentication, auth callback and privacy.
+- **Reusable components:** navigation, product tiles, category chips, filter controls, offer toast, favourites control, report dialog and password input.
+- **Domain modules:** products, offers, messages, favourites, moderation, notifications, uploads, camera and image handling.
+- **Shared contexts/utilities:** Supabase client, authentication/session context, theme, categories and deep-link parsing.
 
+This modular organization separates screen composition from domain operations and backend communication.
+
+## 3. Android integration
+
+Capacitor 7 packages the web application as an Android app. The project documents use of Capacitor integrations for:
+
+- App lifecycle and incoming deep links
+- Camera and photo selection
+- Local notifications
+- Push notification registration
+- Status bar behavior
+
+The Android application ID documented by the project is `com.swapply.app`. Email confirmation callbacks use the custom scheme `com.swapply.app://auth/callback`. The app handles incoming links on warm and cold start and delegates confirmation validation to Supabase.
+
+## 4. Authentication and authorization
+
+Supabase Auth manages user identity and sessions. The app includes authentication context and dedicated callback/confirmation handling.
+
+Database access is protected using Postgres Row Level Security policies. Administrative access is represented in the backend and is checked through a database-side admin function; UI route gating is not the sole security boundary.
+
+The public portfolio does not publish credentials, access tokens, service-role keys, or private project configuration.
+
+## 5. Database and domain model
+
+The repository documentation identifies migrations for these domain areas:
+
+- Profiles and categories
+- Products and product images
+- Swap offers and offer items
+- Conversations and messages
+- Favourites
+- Reports and notifications
+- Device tokens and member blocking
+- Administrative capabilities
+
+Migrations are versioned under `supabase/migrations/`. Row Level Security is used to constrain user access. The complete private schema and SQL are intentionally not reproduced in this public portfolio.
+
+### Exchange lifecycle
+
+The documented exchange engine supports offer creation, responses, automatic reservation behavior and completion. Swapply is an exchange platform, not a payment processor. Any cash difference is an agreement between the users; the application does not process the payment.
+
+## 6. Realtime messaging and notifications
+
+The documented notification architecture combines:
+
+1. Supabase Realtime events for offer changes and chat messages.
+2. In-app offer badges and toast notifications.
+3. Capacitor local notifications while the Android app is running.
+4. Firebase Cloud Messaging for closed-app push delivery through a Supabase Edge Function.
+
+Device tokens are registered through a backend RPC and associated with the signed-in user. The server-side push function validates the caller and derives the intended recipient from the relevant offer or message rather than trusting an arbitrary client-supplied recipient.
+
+## 7. Image upload and storage
+
+The client selects an image using the camera/gallery integration, resizes it and compresses it to WebP. It requests a short-lived presigned upload URL from a Supabase Edge Function, then uploads the image directly to Cloudflare R2. The database stores the object key rather than R2 credentials.
+
+R2 access credentials are held as server-side Edge Function secrets. They must never be embedded in the Android client or committed to the public portfolio.
+
+## 8. Moderation and safety controls
+
+The project documents:
+
+- User-submitted reports for listings
+- Administrative review and resolution of reports
+- Listing hide/remove/restore actions
+- Member suspension/reactivation
+- Member blocking and unblocking
+- Backend enforcement that prevents blocked members from exchanging offers or messages
+
+These capabilities combine frontend controls with database-side authorization policies.
+
+## 9. UI theme
+
+The app uses a retro 1980s/1990s arcade-inspired visual identity, not a distressed vintage aesthetic. The documented palette includes turquoise, green, cream, blue, orange, navy and yellow. Semantic CSS tokens support light and dark themes. Locally bundled fonts include Space Grotesk, Pixelify Sans and Silkscreen, with pixel fonts reserved for display and micro-labels.
+
+## 10. Build and release workflow
+
+The documented developer workflow is:
+
+```powershell
+npm install
+npm run build
+npx cap sync android
+npx cap open android
+```
+
+The native Android project can be built with Android Studio or Gradle. Release signing files and machine-specific configuration are private and excluded from the public portfolio.
+
+## 11. Security and privacy boundaries
+
+- Supabase service-role credentials remain server-side.
+- R2 secrets are used only by the presigning Edge Function.
+- Firebase service-account credentials are stored as backend secrets, not in the public client repository.
+- Android signing keystores and signing properties are private.
+- Row Level Security and server-side validation enforce authorization.
+- This public document describes architecture without exposing private SQL, secrets, or sensitive configuration.
+
+## Scope and verification note
+
+This is a portfolio-level architecture summary derived from project documentation and dependency/source organization. It is not a security audit, penetration test, independent code review, or guarantee that every external service is currently deployed and operational.
