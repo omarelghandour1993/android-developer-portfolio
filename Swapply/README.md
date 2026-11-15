@@ -1,140 +1,135 @@
 # Swapply
 
 ![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)
-![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?logo=capacitor&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white)
+![React](https://img.shields.io/badge/React-19-20232A?logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-007ACC?logo=typescript&logoColor=white)
+![Capacitor](https://img.shields.io/badge/Capacitor-7-119EFF?logo=capacitor&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E?logo=supabase&logoColor=white)
 
-## Project Overview
+## Overview
 
-Swapply is an Android application dedicated to exchanging and swapping products and personal items.
+**Swapply is an Android-focused product exchange application for Egypt.** It helps people exchange personal items directly instead of buying and selling them. An optional, mutually agreed cash difference can be included to balance an exchange; Swapply does not process payments.
 
-It is designed to help people exchange items directly, rather than selling them, while supporting practical and mutually beneficial agreements. The platform focuses on reuse, circular consumption, and meaningful item-to-item exchange.
+The project combines a React and TypeScript application with Capacitor for Android, Supabase for authentication and backend data, and Cloudflare R2 for product-image storage.
 
-This project addresses the need for a simple, community-oriented exchange experience where users can discover products, propose swaps, and agree on value adjustments when needed.
+## Implemented product capabilities
 
-A typical example is a user exchanging a mobile phone for another item and optionally adding an agreed amount of money to balance the exchange, such as 1,000 EGP in a matched agreement.
+The private project documentation and source structure identify the following implemented application areas:
 
-## Key Features
+- **Accounts and profiles:** Supabase authentication, session/profile context, email-confirmation callback handling, account deletion support and profile management.
+- **Marketplace:** product feed, category browsing, search, filters, pagination, product details, listing creation, editing and deletion.
+- **Exchange workflow:** create and manage swap offers, accept or decline offers, reserve listings during an active exchange, and mark exchanges as completed.
+- **Messaging:** private conversations associated with offers, realtime message delivery and read-state handling.
+- **Favourites:** save products and view a dedicated favourites list.
+- **Notifications:** realtime offer updates, in-app badges and toasts, Android local notifications, and Firebase Cloud Messaging integration for closed-app delivery.
+- **Trust and moderation:** report listings, block members, unblock members, and administrative tools for reports, listings and member status.
+- **Dashboard:** listing, offer, completed-exchange and favourite counts.
+- **Appearance:** retro 1980s/1990s arcade-inspired interface, light/dark themes and device-persisted theme preference.
+- **Media handling:** camera/gallery selection, image resizing and WebP compression before upload.
 
-The feature list below distinguishes between verified implementation status and areas still under development or planned.
-
-### Implemented Features
-
-Use this section only for features that are confirmed in the application.
-
-- Product exchange and swap-focused workflow
-- Direct item exchange concept
-- User-driven product matching and swap proposals
-- Additional cash agreement support for value balancing
-- Mobile-friendly product browsing experience
-- Application interface designed for Android and mobile usability
-
-Status note: If an item has not been verified in the actual app, move it to the appropriate status section below instead of listing it as implemented.
-
-### Features Currently Under Development
-
-- User registration and authentication flow
-- Email verification checks
-- Product listing creation and editing
-- Search and filtering experience
-- Product discovery improvements
-- Notification flow and in-app communication
-- User profile and account settings refinement
-
-### Planned Features
-
-- Advanced product search and category filtering
-- Improved swap negotiation experience
-- User communication and messaging updates
-- Activity and notification center
-- Account management and privacy controls
-- Product moderation and safety workflows
-- Expanded onboarding and app guidance
+Feature presence in source code is not the same as independent production certification. Live service availability depends on the relevant Supabase, Cloudflare and Firebase configuration and deployment.
 
 ## Screenshots
 
-The following are placeholder references for screenshots that should be added in `./screenshots/`.
+Add genuine captures from the running Swapply application to `screenshots/`. Suggested filenames:
 
-Add the following files to `Swapply/screenshots/` when ready:
+| Screen | Suggested file |
+|---|---|
+| App icon | `app-icon.png` |
+| Splash screen | `splash-screen.png` |
+| Sign in | `login-screen.png` |
+| Registration | `registration-screen.png` |
+| Marketplace home | `home-screen.png` |
+| Search and filters | `search-screen.png` |
+| Product details | `product-details.png` |
+| Create/edit listing | `add-product.png` |
+| Swap offer | `swap-offer.png` |
+| Offer inbox | `offers-screen.png` |
+| Conversation | `chat-screen.png` |
+| Dashboard | `dashboard.png` |
+| Profile / settings | `profile-screen.png` |
+| Admin tools | `admin-dashboard.png` |
 
-- [App Icon](./screenshots/app-icon.png) — recommended file name: `app-icon.png`
-- [Splash Screen](./screenshots/splash-screen.png) — recommended file name: `splash-screen.png`
-- [Login Screen](./screenshots/login-screen.png) — recommended file name: `login-screen.png`
-- [Registration Screen](./screenshots/registration-screen.png) — recommended file name: `registration-screen.png`
-- [Home Screen](./screenshots/home-screen.png) — recommended file name: `home-screen.png`
-- [Product Details](./screenshots/product-details.png) — recommended file name: `product-details.png`
-- [Add Product](./screenshots/add-product.png) — recommended file name: `add-product.png`
-- [Swap Offer](./screenshots/swap-offer.png) — recommended file name: `swap-offer.png`
-- [User Profile](./screenshots/user-profile.png) — recommended file name: `user-profile.png`
-- [Settings](./screenshots/settings.png) — recommended file name: `settings.png`
+Only add image links after the corresponding real screenshot files have been committed. Do not present mockups as actual application captures.
 
-Do not add fake screenshots or generated mockups to this repository. Use real product captures when available.
+## Demonstration video
 
-## Demonstration Video
+Place real recordings in `demo-video/` and link them here when available.
 
-Add the app demo media to `./demo-video/` and update this section with the final links.
+Recommended 60–90 second walkthrough:
+1. Open the app and browse available items.
+2. Search or filter listings.
+3. Open a product and submit a swap offer.
+4. Show the offer and conversation flow.
+5. Demonstrate notifications and the user dashboard.
 
-Recommended video set:
+## Technology stack
 
-- Short application overview video
-- Complete user journey demonstration
-- Product swapping process walkthrough
+| Technology | Role in the project |
+|---|---|
+| React 19 | Component-based application UI |
+| TypeScript | Typed application code |
+| Vite 6 | Frontend development and production build |
+| Capacitor 7 | Android packaging and native plugin bridge |
+| Supabase | Authentication, Postgres database, Row Level Security, Realtime and Edge Functions |
+| Cloudflare R2 | Object storage for compressed product images, accessed through presigned uploads |
+| Firebase Cloud Messaging | Push delivery integration for closed-app notifications |
+| Android / Gradle | Native Android project and release build |
 
-Current placeholder:
+The Android app uses Capacitor plugins for app lifecycle/deep links, camera, local notifications, push notifications and status bar integration.
 
-- [Demo video placeholder](./demo-video/)
-- Add a final video URL here when a public demo is ready.
+## Architecture
 
-## Technologies Used
+See [architecture.md](./architecture.md) for the component overview, backend responsibilities, data flow and security boundaries.
 
-The current public technology stack for Swapply includes:
+## Development contribution and workflow
 
-- React — frontend user interface development
-- TypeScript — typed JavaScript for application logic and maintainability
-- Capacitor — Android app packaging and native mobile integration
-- Supabase — authentication, database, and backend service integration
+The project repository documents work across:
 
-Only add other technologies when they are verified in the actual project implementation.
+- Product concept and requirements: an exchange-first platform with optional cash balancing, not a conventional sales marketplace.
+- React and TypeScript frontend implementation, routing, reusable components and application screens.
+- Supabase authentication, profile/session handling, database integration and Row Level Security-backed access.
+- Product discovery, listing management and the swap-offer lifecycle.
+- Private realtime conversations and notification flows.
+- Capacitor Android integration, native plugin setup, deep-link handling and Android build preparation.
+- Image processing and secure upload flow using short-lived presigned URLs.
+- Moderation, favourites, dashboard and administrative workflows.
+- Testing, debugging, database migrations and release preparation.
 
-## Architecture Documentation
+This portfolio describes the documented project implementation. It does not claim third-party audit, production-scale performance testing, or independently verified Play Store publication.
 
-- [Architecture overview](./architecture.md)
+## Build overview
 
-## My Contribution and Development Process
+The documented local workflow uses Node.js 20+, Android Studio/Android SDK and Git.
 
-My work on this project includes the following areas, which should be updated as the implementation is confirmed:
+```powershell
+npm install
+npm run build
+npx cap sync android
+npx cap open android
+```
 
-- Project planning and idea definition
-- UI and UX implementation
-- Frontend development
-- Supabase integration
-- Android integration using Capacitor
-- Testing and debugging
-- Build preparation
-- Deployment preparation
+The native Android project can then be built and tested through Android Studio or Gradle. A working build requires locally supplied configuration such as the appropriate Firebase client configuration and signing setup.
 
-This section should remain editable and should only describe work that is accurate and verifiable.
+## Download
 
-## APK Download
+No public release APK is included in this portfolio at this time.
 
-The download directory is located at `./download/`.
+When a distributable release is ready, place the APK in `download/` and update this section with:
+- Exact filename and version
+- Release date
+- SHA-256 checksum
+- Compatibility notes
 
-Use the following format when a release APK is available:
+Never commit signing keystores, passwords, private environment files, service-account credentials or backend secrets.
 
-- APK file: `app-release-vX.Y.Z.apk`
-- Version: `vX.Y.Z`
-- Release date: `YYYY-MM-DD`
+## Project links
 
-Current status:
+- [Architecture](./architecture.md)
+- [Verified feature inventory](./features.md)
+- [Development process](./development-process.md)
+- [Screenshots folder](./screenshots/)
+- [Demo video folder](./demo-video/)
+- [Download folder](./download/)
 
-- No public APK has been uploaded yet.
-- Add the APK and update the download link only after the file is ready for distribution.
-
-Never include signing keys, passwords, private configuration, or sensitive release credentials in this repository.
-
-## Project Status
-
-This project is currently documented as a public portfolio entry and is intentionally designed to be populated with real screenshots, demo videos, architecture notes, and APK releases as they become available.
-
+**Source code:** The application source repository is private. This public portfolio intentionally contains project documentation and approved presentation assets only.
