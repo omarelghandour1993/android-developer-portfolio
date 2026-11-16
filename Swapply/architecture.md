@@ -108,6 +108,10 @@ These capabilities combine frontend controls with database-side authorization po
 
 The app uses a retro 1980s/1990s arcade-inspired visual identity, not a distressed vintage aesthetic. The documented palette includes turquoise, green, cream, blue, orange, navy and yellow. Semantic CSS tokens support light and dark themes. Locally bundled fonts include Space Grotesk, Pixelify Sans and Silkscreen, with pixel fonts reserved for display and micro-labels.
 
+### Home-page brand lockup (latest UI update)
+
+The centered Home header now gives the brand name visual priority: `SWAPPLY` is rendered in the Silkscreen display face at 34 px with `0.04em` letter spacing. Its line box is fixed at 30 px so the larger glyphs do not increase the header's overall height or shift the content below it. The supporting “Swap what you have” tagline is rendered at 13 px in Space Grotesk, weight 500, using the muted semantic text colour. Both lines remain centered on the same horizontal axis. This styling is scoped to the centered Home header; Search keeps its existing eyebrow/heading hierarchy and left-aligned layout.
+
 ## 10. Build and release workflow
 
 The documented developer workflow is:
