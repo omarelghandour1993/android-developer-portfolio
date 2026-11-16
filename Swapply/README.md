@@ -24,7 +24,7 @@ The private project documentation and source structure identify the following im
 - **Notifications:** realtime offer updates, in-app badges and toasts, Android local notifications, and Firebase Cloud Messaging integration for closed-app delivery.
 - **Trust and moderation:** report listings, block members, unblock members, and administrative tools for reports, listings and member status.
 - **Dashboard:** listing, offer, completed-exchange and favourite counts.
-- **Appearance:** retro 1980s/1990s arcade-inspired interface, light/dark themes and device-persisted theme preference.
+- **Appearance:** retro 1980s/1990s arcade-inspired interface, light/dark themes and device-persisted theme preference. The latest Home-page header update makes the Silkscreen “SWAPPLY” wordmark the prominent line (34 px glyph size) and reduces “Swap what you have” to a 13 px Space Grotesk tagline in the muted text colour. The wordmark line box remains pinned to 30 px to preserve the previous header height and vertical layout; the Search page retains its original heading hierarchy.
 - **Media handling:** camera/gallery selection, image resizing and WebP compression before upload.
 
 Feature presence in source code is not the same as independent production certification. Live service availability depends on the relevant Supabase, Cloudflare and Firebase configuration and deployment.
