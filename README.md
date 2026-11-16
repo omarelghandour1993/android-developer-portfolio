@@ -24,6 +24,7 @@ Swapply is an Android-focused product exchange application for Egypt. Users list
 - Firebase Cloud Messaging integration and Capacitor notifications
 - Swap offers, private conversations, favourites, dashboard and moderation workflows
 - Retro 1980s/1990s arcade-inspired interface with light and dark themes
+- Updated Home-page brand lockup: a prominent 34 px Silkscreen “SWAPPLY” wordmark above a restrained 13 px “Swap what you have” tagline
 
 **Explore Swapply**
 - [Project overview and feature details](./Swapply/README.md)
